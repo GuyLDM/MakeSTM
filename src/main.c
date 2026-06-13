@@ -11,14 +11,14 @@ static int WritePacketFrames(GifFile *gif, FILE *outFile, int colorMode, int gif
 	while (i < 8) {
 		if (gifImage < gif->fp->ImageCount) {
 			if (GetGifFrame(gif, dataBuf, gifImage, colorMode)) {
-				fwrite(dataBuf, 1, 0x3820, outFile);
+				fwrite(dataBuf, 1, 0x3620, outFile);
 			} else {
 				printf("Frame %i has too many colors. The GIF must have at maximum 16 colors.\n", gifImage);
 				return -1;
 			}
 			++gifImage;
 		} else {
-			fwrite(dataBuf, 1, 0x3820, outFile);
+			fwrite(dataBuf, 1, 0x3620, outFile);
 		}
 		++i;
 	}
@@ -100,10 +100,10 @@ int main(int argc, char* argv[])
 
 		if (audioRead) {
 			i = 0;
-			memset(dataBuf, 0, 0x3820);
+			memset(dataBuf, 0, 0x3620);
 			while (delay > 0 && i < 8) {
 				/* Delay video if auto-sync is set, to get the video in sync with the audio */
-				fwrite(dataBuf, 1, 0x3820, outFile);
+				fwrite(dataBuf, 1, 0x3620, outFile);
 				++i;
 				--delay;
 			}
