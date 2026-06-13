@@ -3,8 +3,8 @@
 #include <string.h>
 #include "gif.h"
 
-#define CANVAS_WIDTH 256
-#define CANVAS_HEIGHT 112
+#define CANVAS_WIDTH 192
+#define CANVAS_HEIGHT 144
 
 static int hardwareColors[] = {
 	0, 52, 87, 116, 144, 172, 206, 255
